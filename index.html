@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Merve Brand</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Merve Brand 🌸</h1>
+    <nav>
+      <button onclick="filterCategory('all')">All</button>
+      <button onclick="filterCategory('abaya')">Abaya</button>
+      <button onclick="filterCategory('hijab')">Hijab</button>
+      <button onclick="toggleLang()">عربي 🇩🇿</button>
+    </nav>
+  </header>
+
+  <section class="products" id="product-section">
+    <h2>Our Collection</h2>
+    <div class="grid" id="productGrid">
+      <div class="card" data-category="hijab">
+        <div class="image-placeholder">Effa</div>
+        <h3>Hidjeb Effa</h3>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="card" data-category="hijab">
+        <div class="image-placeholder">Jeans</div>
+        <h3>Hidjeb Jeans</h3>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="card" data-category="hijab">
+        <div class="image-placeholder">Anniqua</div>
+        <h3>Hidjeb Anniqua</h3>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="card" data-category="hijab">
+        <div class="image-placeholder">Jeano</div>
+        <h3>Hidjeb Jeano</h3>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="card" data-category="abaya">
+        <div class="image-placeholder">Hearts</div>
+        <h3>Hearts Abaya</h3>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cart-section" id="cart">
+    <h2>Your Cart 🛒</h2>
+    <ul id="cartItems"></ul>
+    <p id="emptyCart">Cart is empty</p>
+  </section>
+
+  <section class="form-section">
+    <h2>Order Form</h2>
+    <form action="https://formspree.io/f/mpwlaapq" method="POST" id="orderForm">
+      <label>Phone Number:
+        <input type="tel" name="Phone" placeholder="+213..." required />
+      </label>
+      <label>Select Product:
+        <select name="Product" required>
+          <option disabled selected>-- Choose --</option>
+          <option>Hidjeb Effa</option>
+          <option>Hidjeb Jeans</option>
+          <option>Hidjeb Anniqua</option>
+          <option>Hidjeb Jeano</option>
+          <option>Hearts Abaya</option>
+        </select>
+      </label>
+      <label>Color:
+        <select name="Color" required>
+          <option>pêche</option>
+          <option>black</option>
+          <option>pink</option>
+          <option>yellow</option>
+          <option>purple</option>
+        </select>
+      </label>
+      <label>Size:
+        <select name="Size" required>
+          <option>36</option><option>38</option><option>40</option><option>42</option>
+          <option>44</option><option>46</option><option>48</option><option>50</option>
+        </select>
+      </label>
+      <label>Wilaya:
+        <select name="Wilaya" id="wilaya" required></select>
+      </label>
+      <label>Delivery:
+        <select name="Delivery" required>
+          <option>To Home</option>
+          <option>To ZREXpress Office</option>
+        </select>
+      </label>
+      <label>Quantity:
+        <div class="qty-control">
+          <button type="button" onclick="adjustQty(-1)">-</button>
+          <input type="number" id="quantity" name="Quantity" value="1" min="1" readonly />
+          <button type="button" onclick="adjustQty(1)">+</button>
+        </div>
+      </label>
+      <button type="submit">Submit Order</button>
+      <p id="confirmation">✔ Order sent successfully!</p>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
